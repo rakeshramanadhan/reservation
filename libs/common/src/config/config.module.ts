@@ -5,6 +5,7 @@ import * as Joi from 'joi';
   imports: [
     NestConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: '.env', // Specify the path to your .env file
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
       }),

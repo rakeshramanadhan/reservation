@@ -98,7 +98,130 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
-```bash
-$ pnpm i nestjs-pino pino-http //logging  library for structured logging
-$ pnpm i pino-pretty
-```
+#### My Notes
+
+# steps
+
+> nest new <project>
+
+> pnpm start:dev
+
+## common library for all micro services like databse access,authentication,logging
+
+> nest generate library common
+> pnpm i @nestjs/mangoose mangoose ## pnpm add @nestjs/typeorm typeorm pg @nestjs/config for sql
+> pnpm i @nestjs/config
+
+## for creating modules
+
+> nest generate module database -p common
+> nest generate module config -p common
+
+## for schema validation and conection install joi
+
+> pnpm i joi
+
+## creatting new app reservation
+
+> nest g app reservations
+> nest g resource reservations
+
+## for validation
+
+> pnpm i class-validator class-transformer
+
+## for logging update main.ts in reservations
+
+> pnpm i nestjs-pino pino-http
+
+## for pretty listing of log
+
+> pnpm i pino-pretty
+
+## seperate the logger in common for using all apps
+
+## adding valiation
+
+step1: add useGlobalPipes in main.ts
+step2: add decorators in create-reservation.dto
+
+##major decortators are
+
+import {
+IsAlphanumeric,
+IsEmail,
+IsEnum,
+IsInt,
+IsNotEmpty,
+IsString,
+IsDate,
+Matches,
+MinLength,
+} from 'class-validator';
+
+## dockerastion of each application in microservice
+
+step1 create DockerFile in reservations app root
+step2 use node Alphine Image for dockerization
+
+-create DockerFile
+
+# add instruction set template for deploy the application
+
+-create .dockerignore file
+
+# add node_modules under .dockerignore file
+
+> cd apps/reservations
+
+> docker build ../../ -f DockerFile -t sleepr_reservations
+
+# to run the docker
+
+> docker run sleepr_reservations
+
+# to specify the envrioment varibales create docker-compose.yaml
+
+> docker-compose down --volumes
+> docker-compose build --no-cache
+> docker-compose up
+
+## new app reservation
+
+> nest g app auth
+> nest g module users
+> nest g controller users
+
+# import DatabaseModule in userModule
+
+# add useglobalPipes and uselogger in main module
+
+# add Logger module in auth module
+
+## impliment authentication middleware using passport
+
+> pnpm i @nestjs/passport passport passport-local
+
+# For passport development dependencies
+
+> pnpm i -D @types/passport-local
+
+# for passport jwt
+
+> pnpm i @nestjs/jwt passport-jwt
+
+## For jwt development dependencies
+
+> # pnpm i -D @types/passport-jwt
+>
+> "# mynestpro"
+>
+> > > > > > > 091a795dde9c0a64c28f12b1b69c6f11909583cc
+
+## for encript the password
+
+> pnpm i bcrypt
+
+## also install development dependency
+
+> pnpm i -D @types/bcrypt
