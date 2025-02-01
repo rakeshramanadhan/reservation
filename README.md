@@ -218,6 +218,10 @@ step2 use node Alphine Image for dockerization
 >
 > > > > > > > 091a795dde9c0a64c28f12b1b69c6f11909583cc
 
+const crypto = require('crypto');//generate random string
+
+// Generate a 32-byte random string
+
 ## for encript the password
 
 > pnpm i bcrypt
