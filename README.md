@@ -232,3 +232,7 @@ const crypto = require('crypto');//generate random string
 > pnpm i cookie-parser
 
 > pnpm i -d @types/cookie-parser
+
+> git checkout -b new-branch-name
+
+> pnpm i @nestjs/microservices
