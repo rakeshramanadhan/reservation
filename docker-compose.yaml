@@ -9,6 +9,9 @@ services:
       - ./apps/reservations/.env
     ports:
       - '3000:3000'
+    volumes:
+      - ./apps/reservations:/app/apps/reservations # Mount the reservations app code
+      - /app/node_modules
   auth:
     build:
       context: .
@@ -20,7 +23,7 @@ services:
     ports:
       - '3001:3001'
     volumes:
-      - .:/app
+      - ./apps/auth:/app/apps/auth # Mount the reservations app code
       - /app/node_modules
   mongo:
     image: mongo

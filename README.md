@@ -109,7 +109,7 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ## common library for all micro services like databse access,authentication,logging
 
 > nest generate library common
-> pnpm i @nestjs/mangoose mangoose ## pnpm add @nestjs/typeorm typeorm pg @nestjs/config for sql
+> pnpm i @nestjs/mongoose mongoose ## pnpm add @nestjs/typeorm typeorm pg @nestjs/config for sql
 > pnpm i @nestjs/config
 
 ## for creating modules
@@ -120,6 +120,8 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 ## for schema validation and conection install joi
 
 > pnpm i joi
+> pnpm add nestjs-pino pino
+> pnpm add -D @types/pino
 
 ## creatting new app reservation
 
@@ -224,8 +226,9 @@ const crypto = require('crypto');//generate random string
 
 ## for encript the password
 
-> pnpm i bcrypt
+> pnpm i bcryptjs express
+> pnpm i -d @types/bcryptjs
 
-## also install development dependency
+> pnpm i cookie-parser
 
-> pnpm i -D @types/bcrypt
+> pnpm i -d @types/cookie-parser
